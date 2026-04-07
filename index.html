@@ -7,9 +7,9 @@
   <style>
     body {
       margin: 0;
-      background: #ffffff;
-      color: #111;
       font-family: Arial;
+      background: #fff;
+      color: #111;
     }
 
     h1,h2,h3 { margin: 0; }
@@ -24,7 +24,7 @@
       padding: 40px;
     }
 
-    .bg-video {
+    .bg-video, .bg-fallback {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -32,6 +32,9 @@
       top: 0;
       left: 0;
     }
+
+    .bg-video { z-index: 1; }
+    .bg-fallback { z-index: 0; }
 
     .overlay {
       position: absolute;
@@ -45,36 +48,30 @@
     }
 
     .hero h1 {
-      font-size: 60px;
-      color: #111;
+      font-size: 50px;
     }
 
     /* BUTTON */
     .btn {
       display: inline-block;
       margin-top: 10px;
-      padding: 14px 28px;
+      padding: 12px 24px;
       background: black;
       color: white;
-      font-weight: bold;
       text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #333;
+      font-weight: bold;
     }
 
     /* SECTION */
     .section {
-      padding: 80px 20px;
+      padding: 60px 20px;
       max-width: 1200px;
       margin: auto;
     }
 
     .grid {
       display: grid;
-      gap: 40px;
+      gap: 30px;
     }
 
     @media(min-width:768px) {
@@ -83,29 +80,20 @@
       }
     }
 
-    .card {
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
     .card img {
       width: 100%;
-      border-radius: 12px;
+      border-radius: 10px;
     }
 
     .price {
       color: #ff6600;
-      font-size: 20px;
-      margin-top: 5px;
+      font-size: 18px;
     }
 
     /* TRUST */
     .trust {
       background: #f5f5f5;
-      padding: 50px;
+      padding: 40px;
       text-align: center;
     }
 
@@ -116,8 +104,8 @@
       right: 20px;
       background: black;
       color: white;
-      padding: 15px 20px;
-      border-radius: 50px;
+      padding: 12px 18px;
+      border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
     }
@@ -130,7 +118,11 @@
 <!-- HERO -->
 <div class="hero">
 
-  <video autoplay muted loop playsinline class="bg-video">
+  <!-- ảnh fallback -->
+  <img src="p1.png" class="bg-fallback">
+
+  <!-- video -->
+  <video id="bgVideo" muted loop playsinline preload="none" class="bg-video">
     <source src="surf.mp4" type="video/mp4">
   </video>
 
@@ -140,8 +132,8 @@
     <h1>1M63 MotorSurf</h1>
     <p>Ride The Future</p>
 
-    <a href="https://zalo.me/0980000000" class="btn">Chat Zalo</a><br>
-    <a href="tel:0980000000" class="btn">Gọi ngay</a>
+    <a href="https://zalo.me/0337734848" class="btn">Chat Zalo</a><br>
+    <a href="tel:0337734848" class="btn">Gọi ngay</a>
   </div>
 
 </div>
@@ -149,7 +141,7 @@
 <!-- TRUST -->
 <div class="trust">
   <h2>Trải nghiệm thật tại Việt Nam</h2>
-  <p>Test demo trước khi mua • Bảo hành • Hỗ trợ kỹ thuật</p>
+  <p>Test demo • Bảo hành • Hỗ trợ kỹ thuật</p>
 </div>
 
 <!-- GAS -->
@@ -161,14 +153,14 @@
       <img src="p1.png">
       <h3>HIGHSEA R1</h3>
       <p class="price">128.000.000 VND</p>
-      <a href="https://zalo.me/0980000000" class="btn">Hỏi ngay</a>
+      <a href="https://zalo.me/0337734848" class="btn">Hỏi ngay</a>
     </div>
 
     <div class="card">
       <img src="p2.png">
       <h3>TRP98-DFI</h3>
       <p class="price">138.000.000 VND</p>
-      <a href="https://zalo.me/0980000000" class="btn">Hỏi ngay</a>
+      <a href="https://zalo.me/0337734848" class="btn">Hỏi ngay</a>
     </div>
   </div>
 </div>
@@ -182,20 +174,34 @@
       <img src="p3.png">
       <h3>WAKE EP 55</h3>
       <p class="price">98.000.000 VND</p>
-      <a href="https://zalo.me/0980000000" class="btn">Hỏi ngay</a>
+      <a href="https://zalo.me/0337734848" class="btn">Hỏi ngay</a>
     </div>
 
     <div class="card">
       <img src="p4.png">
       <h3>WAKE RACING</h3>
       <p class="price">196.000.000 VND</p>
-      <a href="https://zalo.me/0980000000" class="btn">Hỏi ngay</a>
+      <a href="https://zalo.me/0337734848" class="btn">Hỏi ngay</a>
     </div>
   </div>
 </div>
 
 <!-- FLOAT -->
-<a href="https://zalo.me/0980000000" class="float">Chat ngay</a>
+<a href="https://zalo.me/0337734848" class="float">Chat ngay</a>
+
+<!-- VIDEO LOAD SMART -->
+<script>
+  const video = document.getElementById("bgVideo");
+
+  function loadVideo() {
+    video.setAttribute("autoplay", "");
+    video.load();
+    video.play();
+  }
+
+  setTimeout(loadVideo, 1000);
+  window.addEventListener("scroll", loadVideo, { once: true });
+</script>
 
 </body>
 </html>
