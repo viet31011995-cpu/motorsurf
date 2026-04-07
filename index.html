@@ -3,6 +3,7 @@
 <head>
   <title>1M63 MotorSurf</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
@@ -10,69 +11,177 @@
       color: white;
       font-family: Arial;
     }
-    .container {
-      padding: 20px;
+
+    h1,h2,h3 { margin: 0; }
+
+    /* HERO VIDEO */
+    .hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      padding: 40px;
     }
-    .product {
-      margin-top: 40px;
-    }
-    img {
+
+    .bg-video {
+      position: absolute;
       width: 100%;
-      max-width: 400px;
+      height: 100%;
+      object-fit: cover;
+      top: 0;
+      left: 0;
     }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, black, transparent);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 60px;
+    }
+
+    /* BUTTON */
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 14px 28px;
+      background: orange;
+      color: black;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    /* SECTION */
+    .section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .grid {
+      display: grid;
+      gap: 40px;
+    }
+
+    @media(min-width:768px) {
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
     .price {
       color: orange;
       font-size: 20px;
     }
-    button {
-      margin-top: 10px;
-      padding: 10px 20px;
-      border: 1px solid white;
-      background: transparent;
-      color: white;
-      cursor: pointer;
+
+    /* TRUST */
+    .trust {
+      background: #111;
+      padding: 40px;
+      text-align: center;
     }
+
+    /* FLOAT BUTTON */
+    .float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: orange;
+      color: black;
+      padding: 15px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
   </style>
 </head>
 
 <body>
 
-<div class="container">
-  <h1>1M63 MotorSurf</h1>
+<!-- HERO VIDEO -->
+<div class="hero">
 
-  <div class="product">
-    <img src="p1.png">
-    <h2>HIGHSEA R1</h2>
-    <p>Gas</p>
-    <p class="price">128.000.000 VND</p>
-    <button>Contact to Buy</button>
-  </div>
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="surf.mp4" type="video/mp4">
+  </video>
 
-  <div class="product">
-    <img src="p2.png">
-    <h2>TRP98-DFI</h2>
-    <p>Gas</p>
-    <p class="price">138.000.000 VND</p>
-    <button>Contact to Buy</button>
-  </div>
+  <div class="overlay"></div>
 
-  <div class="product">
-    <img src="p3.png">
-    <h2>WAKE EP 55</h2>
-    <p>Electric</p>
-    <p class="price">98.000.000 VND</p>
-    <button>Contact to Buy</button>
-  </div>
+  <div class="hero-content">
+    <h1>1M63 MotorSurf</h1>
+    <p>Motorized Surfboard cao cấp</p>
 
-  <div class="product">
-    <img src="p4.png">
-    <h2>WAKE RACING</h2>
-    <p>Electric</p>
-    <p class="price">196.000.000 VND</p>
-    <button>Contact to Buy</button>
+    <a href="https://zalo.me/0337734848" class="btn">Chat Zalo</a><br>
+    <a href="tel:0980000000" class="btn">Gọi ngay</a>
   </div>
 
 </div>
+
+<!-- TRUST -->
+<div class="trust">
+  <h2>✔ Trải nghiệm thật tại Việt Nam</h2>
+  <p>✔ Test demo trước khi mua</p>
+  <p>✔ Hỗ trợ kỹ thuật & bảo hành</p>
+</div>
+
+<!-- GAS -->
+<div class="section">
+  <h2>Gas Surfboards</h2>
+
+  <div class="grid">
+    <div class="card">
+      <img src="p1.png">
+      <h3>HIGHSEA R1</h3>
+      <p class="price">128.000.000 VND</p>
+      <a href="https://zalo.me/0337734848" class="btn">Hỏi ngay</a>
+    </div>
+
+    <div class="card">
+      <img src="p2.png">
+      <h3>TRP98-DFI</h3>
+      <p class="price">138.000.000 VND</p>
+      <a href="https://zalo.me/0337734848" class="btn">Hỏi ngay</a>
+    </div>
+  </div>
+</div>
+
+<!-- ELECTRIC -->
+<div class="section">
+  <h2>Electric Surfboards</h2>
+
+  <div class="grid">
+    <div class="card">
+      <img src="p3.png">
+      <h3>WAKE EP 55</h3>
+      <p class="price">98.000.000 VND</p>
+      <a href="https://zalo.me/0337734848" class="btn">Hỏi ngay</a>
+    </div>
+
+    <div class="card">
+      <img src="p4.png">
+      <h3>WAKE RACING</h3>
+      <p class="price">196.000.000 VND</p>
+      <a href="https://zalo.me/0337734848" class="btn">Hỏi ngay</a>
+    </div>
+  </div>
+</div>
+
+<!-- FLOAT BUTTON -->
+<a href="https://zalo.me/0337734848" class="float">Chat ngay</a>
 
 </body>
 </html>
